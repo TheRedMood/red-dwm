@@ -1,0 +1,29 @@
+#!/bin/bash
+# Setting up and patching all of the different files
+
+# Variables
+patchcmd='patch -s'
+wdir="$(pwd)"
+dwm_version="6.0"
+
+# go into the working dir
+cd $wdir/dwm-${dwm_version}
+
+# generate the configuration files
+make
+make clean
+
+# Patching part
+echo "Patching dwm-${dwm_version} with:"
+
+# Cleaner to do it with a loop, than an array
+for file in $wdir/patches/*.diff; do
+    printf '\t%-25s' "$(basename ${file})"
+
+    if ($patchcmd < $file); then
+       printf ' [OK]\n'
+    else
+       printf ' [!!]\n'
+    fi   
+done
+

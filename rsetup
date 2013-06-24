@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Setting up everything
+curl -fsSL 'http://dl.suckless.org/dwm/dwm-6.0.tar.gz' | tar -zxf -
