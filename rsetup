@@ -2,3 +2,8 @@
 
 # Setting up everything
 curl -fsSL 'http://dl.suckless.org/dwm/dwm-6.0.tar.gz' | tar -zxf -
+
+# Generate the configuration files
+cd dwm-6.0
+make
+make clean
